@@ -12,9 +12,9 @@ function initialize_calculation() {
   let initial_bill = +document.getElementById("initial_bill").value;
 
   //Process
-  let GST = initial_bill * 0.05;
-  let tip_amount = tip_percentage * initial_bill;
-  let total_bill = initial_bill + GST + tip_amount;
+  let GST = Math.round(100 * (initial_bill * 0.05)) / 100;
+  let tip_amount = Math.round(100 * (tip_percentage * initial_bill)) / 100;
+  let total_bill = Math.round(100 * (initial_bill + GST + tip_amount)) / 100;
 
   // Output
   document.getElementById("GST").innerHTML = `$${GST}`;
